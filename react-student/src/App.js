@@ -1,15 +1,19 @@
 import React from "react";
-
-import Main from "./components/Main";
-import { FormDataProvider } from "./contexts/FormDataContext";
+import TotalVotes from "./components/TotalVotes";
+import VotingForm from "./components/VotingForm";
+import CandidatesList from "./components/CandidatesList";
+import { VoteProvider } from "./VoteContext";
 
 const App = () => {
   return (
-    <FormDataProvider>
-      <div className="App">
-        <Main />
+    <VoteProvider>
+      <div>
+        <TotalVotes />
+        <VotingForm />
+        <CandidatesList />
       </div>
-    </FormDataProvider>
+    </VoteProvider>
   );
 };
+
 export default App;
