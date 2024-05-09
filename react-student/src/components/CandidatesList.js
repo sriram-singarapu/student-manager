@@ -11,13 +11,15 @@ const CandidatesList = () => {
   return (
     <div>
       <h2>Candidates and Votes</h2>
-      <ul>
-        {candidates.map((candidate) => (
-          <li key={candidate.id}>
-            {candidate.name}: {candidate.votes} votes
-            <ul>
-              {votesByVoter[candidate.name] &&
-                votesByVoter[candidate.name].map((voter, index) => (
+      {candidates.map((candidate) => (
+        <div key={candidate.id}>
+          <h1>{candidate.name}</h1>
+          <p>Candidate votes: {candidate.votes} votes</p>
+
+          <div>
+            {votesByVoter[candidate.name] && (
+              <ul>
+                {votesByVoter[candidate.name].map((voter, index) => (
                   <li key={index}>
                     {voter}
                     <button onClick={() => handleDelete(candidate.name, voter)}>
@@ -25,10 +27,11 @@ const CandidatesList = () => {
                     </button>
                   </li>
                 ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
+              </ul>
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

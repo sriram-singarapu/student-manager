@@ -1,0 +1,10 @@
+.app {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.app li {
+  list-style-type: none;
+}

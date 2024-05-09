@@ -11,7 +11,7 @@ const TotalVotes = () => {
 
   return (
     <div>
-      <h2>Total Votes: {totalVotes}</h2>
+      <h1>Total Votes: {totalVotes}</h1>
     </div>
   );
 };

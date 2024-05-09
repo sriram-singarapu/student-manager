@@ -3,8 +3,9 @@
 import React, { useState } from "react";
 import { useVoteContext } from "../VoteContext";
 import Modal from "./Modal";
+import "./votingform.css";
 
-const VotingForm = () => {
+const VotingForm = (props) => {
   const { candidates, handleVote } = useVoteContext();
   const [voterName, setVoterName] = useState("");
   const [selectedCandidate, setSelectedCandidate] = useState("");
@@ -23,10 +24,12 @@ const VotingForm = () => {
   return (
     <div>
       <h2>Cast Your Vote</h2>
-      <button onClick={() => setShowModal(true)}>Cast Vote</button>
+      <button className="btn" onClick={() => setShowModal(true)}>
+        Cast Vote
+      </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <form onSubmit={handleSubmit}>
+          <form className="voting-form" onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Your Name"
@@ -46,7 +49,9 @@ const VotingForm = () => {
                 </option>
               ))}
             </select>
+
             <button type="submit">Submit Vote</button>
+            <button onClick={() => setShowModal(false)}>Close</button>
           </form>
         </Modal>
       )}
